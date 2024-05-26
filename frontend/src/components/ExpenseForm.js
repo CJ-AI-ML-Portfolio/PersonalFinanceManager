@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 import { addExpense } from "../redux/actions";
 
 const ExpenseForm = () => {
@@ -9,7 +10,13 @@ const ExpenseForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addExpense({ amount, category, date: new Date().toISOString() }));
+    const expense = {
+      id: uuidv4(),
+      amount,
+      category,
+      date: new Date().toISOString(),
+    };
+    dispatch(addExpense(expense));
     setAmount("");
     setCategory("");
   };
