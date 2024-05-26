@@ -1,5 +1,6 @@
 const initialState = {
   expenses: [],
+  budgets: [], // New state for budgets
 };
 
 export const expenseReducer = (state = initialState, action) => {
@@ -15,6 +16,16 @@ export const expenseReducer = (state = initialState, action) => {
         expenses: state.expenses.filter(
           (expense) => expense.id !== action.payload
         ),
+      };
+    case "ADD_BUDGET":
+      return {
+        ...state,
+        budgets: [...state.budgets, action.payload],
+      };
+    case "REMOVE_BUDGET":
+      return {
+        ...state,
+        budgets: state.budgets.filter((budget) => budget.id !== action.payload),
       };
     default:
       return state;
