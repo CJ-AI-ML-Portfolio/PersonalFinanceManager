@@ -33,7 +33,11 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-react": "^7.24.0",
+    "jest": "^27.0.6",
+    "jest-dom": "^4.0.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/jest-dom": "^5.14.1"
   },
   "browserslist": {
     "production": [
