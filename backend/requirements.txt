@@ -2,3 +2,6 @@ Django>=3.2,<4.0
 djangorestframework>=3.12.4
 graphene-django>=2.15.0
 psycopg2>=2.8.6
+pandas
+scikit-learn
+joblib
