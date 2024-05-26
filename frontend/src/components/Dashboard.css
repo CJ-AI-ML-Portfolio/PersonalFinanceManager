@@ -1,0 +1,13 @@
+.dashboard-container {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.dashboard-container h4,
+.dashboard-container h5 {
+  margin-bottom: 20px;
+}
+
+.dashboard-container .recharts-wrapper {
+  margin: 0 auto;
+}
