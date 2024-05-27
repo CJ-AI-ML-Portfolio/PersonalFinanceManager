@@ -7,15 +7,11 @@ import joblib
 data = pd.read_csv('backend/ml_models/expenses.csv')
 
 # Preprocess the data
-data['description_length'] = data['description'].apply(len)  # Example feature: Length of the description
-data = data.drop(['description', 'date'], axis=1)
-
-# Encode the category labels
 data['category'] = data['category'].astype('category').cat.codes
 
 # Define features (X) and labels (y)
-X = data.drop('category', axis=1)
-y = data['category']
+X = data[['amount', 'user_id']]  # Features
+y = data['category']  # Labels
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

@@ -1,8 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from datetime import date
-
-from .models import Expense, CustomUser
+from .models import Expense
 
 class ExpenseType(DjangoObjectType):
     class Meta:
@@ -24,12 +22,12 @@ class CreateExpense(graphene.Mutation):
         category = graphene.String()
 
     def mutate(self, info, amount, category):
-        user = CustomUser.objects.first()  # Simplified for example purposes
-        expense = Expense(amount=amount, category=category, date=date.today(), user=user)
+        user = info.context.user
+        expense = Expense(amount=amount, category=category, date=datetime.date.today(), user=user)
         expense.save()
         return CreateExpense(id=expense.id, amount=expense.amount, category=expense.category)
 
 class Mutation(graphene.ObjectType):
-        create_expense = CreateExpense.Field()
+    create_expense = CreateExpense.Field()
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

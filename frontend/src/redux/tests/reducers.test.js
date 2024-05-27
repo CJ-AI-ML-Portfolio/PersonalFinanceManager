@@ -28,10 +28,7 @@ describe("Redux Reducers", () => {
         { id: "1", amount: "100", category: "Groceries", date: "2023-01-01" },
       ],
     };
-    const action = {
-      type: "REMOVE_EXPENSE",
-      payload: "1",
-    };
+    const action = { type: "REMOVE_EXPENSE", payload: "1" };
     const newState = expenseReducer(stateWithExpense, action);
     expect(newState.expenses).toHaveLength(0);
   });
@@ -51,10 +48,7 @@ describe("Redux Reducers", () => {
       ...initialState,
       budgets: [{ id: "1", category: "Entertainment", amount: 300 }],
     };
-    const action = {
-      type: "REMOVE_BUDGET",
-      payload: "1",
-    };
+    const action = { type: "REMOVE_BUDGET", payload: "1" };
     const newState = expenseReducer(stateWithBudget, action);
     expect(newState.budgets).toHaveLength(0);
   });
