@@ -1,4 +1,4 @@
-from django.test import TestCase
+from .utils import BaseTestCase
 from django.contrib.auth import get_user_model
 from graphene.test import Client
 from core.schema import schema
@@ -6,9 +6,10 @@ from ..models import Expense
 
 User = get_user_model()
 
-class ExpenseGraphQLTests(TestCase):
+class ExpenseGraphQLTests(BaseTestCase):
 
     def setUp(self):
+        super().setUp()
         self.user = User.objects.create_user(username='testuser', password='12345')
 
     def test_query_all_expenses(self):

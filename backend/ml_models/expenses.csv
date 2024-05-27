@@ -1,4 +1,7 @@
-amount,date,description,category
-50.00,2023-01-01,Grocery shopping,Groceries
-20.00,2023-01-02,Bus ticket,Transport
-80.00,2023-01-03,Restaurant,Entertainment
+user_id,category,amount,date
+1,Groceries,100.00,2023-01-01
+1,Transport,50.00,2023-01-02
+1,Groceries,80.00,2023-02-01
+2,Entertainment,120.00,2023-02-01
+2,Transport,40.00,2023-02-02
+1,Transport,70.00,2023-02-05
